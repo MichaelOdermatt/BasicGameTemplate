@@ -1,23 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu1u47how3mx0"]
-
-[ext_resource type="Script" path="res://Assets/Scripts/SettingsMenu/SettingsMenu.gd" id="1_ls4tc"]
+[gd_scene load_steps=2 format=3 uid="uid://cu1u47how3mx0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7knb"]
 
-[node name="SettingsMenu" type="MarginContainer"]
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-script = ExtResource("1_ls4tc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -28,7 +27,6 @@ text = "Settings"
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -75,7 +73,9 @@ text = "Look Sensitivity"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -86,14 +86,25 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 35
 text = "Master Volume"
 
-[node name="OptionButton" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -49.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = 25

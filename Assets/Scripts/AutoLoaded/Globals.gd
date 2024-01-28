@@ -1,6 +1,7 @@
 extends Node
 
-const RESOLUTIONS: Dictionary = {
+## A list of all available resolution options.
+var supported_resolutions: Dictionary = {
 	'3840 x 2160' : Vector2i(3840, 2160),
 	'2560 x 1440' : Vector2i(2560, 1440),
 	'1920 x 1080' : Vector2i(1920, 1080),
@@ -13,7 +14,11 @@ const RESOLUTIONS: Dictionary = {
 	'800 x 600' : Vector2i(800, 600),
 }
 
+## The current setting values.
+var setting_values: SettingsData;
+
+## A list of all available window mode options.
 const WINDOW_MODES: Dictionary = {
 	'Windowed' : 0,
-	'Fullscreen' : 1,
+	'Fullscreen' : 3,
 }
