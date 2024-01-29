@@ -1,7 +1,10 @@
 extends Node
 
+## The current setting values.
+var setting_values: SettingsData;
+
 ## A list of all available resolution options.
-var supported_resolutions: Dictionary = {
+const SUPPORTED_RESOLUTIONS: Dictionary = {
 	'3840 x 2160' : Vector2i(3840, 2160),
 	'2560 x 1440' : Vector2i(2560, 1440),
 	'1920 x 1080' : Vector2i(1920, 1080),
@@ -14,10 +17,17 @@ var supported_resolutions: Dictionary = {
 	'800 x 600' : Vector2i(800, 600),
 }
 
-## The current setting values.
-var setting_values: SettingsData;
+## A list of all available anti aliasing modes. The Key is the name of the mode
+## and the Value is it's enum value as an int.
+const ANTI_ALIASING_OPTIONS: Dictionary = {
+	'Disabled' : 0,
+	'MSAA 3D 2x' : 1,
+	'MSAA 3D 4x' : 2,
+	'MSAA 3D 8x' : 3,
+}
 
-## A list of all available window mode options.
+## A list of all available window mode options. The Key is the name of the mode
+## and the Value is it's enum value as an int.
 const WINDOW_MODES: Dictionary = {
 	'Windowed' : 0,
 	'Fullscreen' : 3,

@@ -1,4 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu1u47how3mx0"]
+[gd_scene load_steps=4 format=3 uid="uid://cu1u47how3mx0"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_urfyb"]
+color = Color(0.866667, 0.866667, 0.866667, 1)
+thickness = 3
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_l5khv"]
+color = Color(0.866667, 0.866667, 0.866667, 1)
+thickness = 3
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7knb"]
 
@@ -23,53 +31,135 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="Settings" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="VideoSettings" type="MarginContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 35
-text = "Resolution"
+text = "Video Settings"
 
-[node name="ResolutionOptions" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 6
-theme_override_font_sizes/font_size = 20
+theme_override_styles/separator = SubResource("StyleBoxLine_urfyb")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="WindowMode" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 35
 text = "Window Mode"
 
-[node name="WindowModeOptions" type="OptionButton" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="WindowModeOptions" type="OptionButton" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 20
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Resolution" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+text = "Resolution"
+
+[node name="ResolutionOptions" type="OptionButton" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="RenderScale" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+text = "Render Scale"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "50%"
+
+[node name="RenderScaleSlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.5
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "100%"
+
+[node name="AntiAliasing" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/AntiAliasing"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
+text = "Anti Aliasing"
+
+[node name="AntiAliasingOptions" type="OptionButton" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/AntiAliasing"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="ControlSettings" type="MarginContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Control Settings"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_l5khv")
+
+[node name="LookSensitivity" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 35
 text = "Look Sensitivity"
 
-[node name="LookSensitivitySlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="LookSensitivitySlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -77,16 +167,16 @@ max_value = 1.0
 step = 0.01
 value = 0.5
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 35
 text = "Master Volume"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -94,22 +184,17 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -232.0
-offset_top = -49.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="CancelAndApply" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CancelAndApply"]
+layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_constants/separation = 25
 
-[node name="Cancel" type="Button" parent="HBoxContainer"]
+[node name="Cancel" type="Button" parent="VBoxContainer/CancelAndApply/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 theme_override_font_sizes/font_size = 35
@@ -120,7 +205,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_w7knb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w7knb")
 text = "Cancel"
 
-[node name="Apply" type="Button" parent="HBoxContainer"]
+[node name="Apply" type="Button" parent="VBoxContainer/CancelAndApply/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
 theme_override_font_sizes/font_size = 35
