@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://db6vhnajpexm5"]
+[gd_scene load_steps=5 format=3 uid="uid://db6vhnajpexm5"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/TitleScreen.gd" id="1_7765a"]
 [ext_resource type="PackedScene" uid="uid://c56nip0c3imtv" path="res://Assets/Scenes/Menus/MainMenu/MainMenu.tscn" id="1_nlldt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Menus/MainMenu.gd" id="2_4x8au"]
 [ext_resource type="PackedScene" uid="uid://cu1u47how3mx0" path="res://Assets/Scenes/Menus/SettingsMenu.tscn" id="2_kpp6g"]
-[ext_resource type="Script" path="res://Assets/Scripts/Menus/SettingsMenu/SettingsMenu.gd" id="3_dafcf"]
 
 [node name="TitleScreen" type="MarginContainer"]
 anchors_preset = 15
@@ -25,4 +24,3 @@ script = ExtResource("2_4x8au")
 [node name="SettingsMenu" parent="." instance=ExtResource("2_kpp6g")]
 visible = false
 layout_mode = 2
-script = ExtResource("3_dafcf")

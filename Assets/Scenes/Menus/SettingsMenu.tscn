@@ -1,33 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu1u47how3mx0"]
+[gd_scene load_steps=3 format=3 uid="uid://cu1u47how3mx0"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_urfyb"]
-color = Color(0.866667, 0.866667, 0.866667, 1)
-thickness = 3
+[ext_resource type="Theme" uid="uid://cv03kaqa62u25" path="res://Assets/Themes/MenuTheme.tres" id="1_782ts"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menus/SettingsMenu/SettingsMenu.gd" id="2_fibma"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_l5khv"]
-color = Color(0.866667, 0.866667, 0.866667, 1)
-thickness = 3
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7knb"]
-
-[node name="SettingsMenu" type="Control"]
-layout_mode = 3
+[node name="SettingsMenu" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_782ts")
+script = ExtResource("2_fibma")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 
@@ -54,12 +44,13 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Video Settings"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_urfyb")
+theme = ExtResource("1_782ts")
 
 [node name="WindowMode" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
 layout_mode = 2
@@ -67,12 +58,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Window Mode"
 
 [node name="WindowModeOptions" type="OptionButton" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/WindowMode"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 20
 
 [node name="Resolution" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
@@ -81,12 +74,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Resolution"
 
 [node name="ResolutionOptions" type="OptionButton" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Resolution"]
 layout_mode = 2
 size_flags_horizontal = 6
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 20
 
 [node name="RenderScale" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
@@ -95,6 +90,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Render Scale"
 
@@ -104,6 +100,7 @@ size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 25
 text = "50%"
 
@@ -111,6 +108,7 @@ text = "50%"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme = ExtResource("1_782ts")
 min_value = 0.5
 max_value = 1.0
 step = 0.05
@@ -118,6 +116,7 @@ value = 1.0
 
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 25
 text = "100%"
 
@@ -143,12 +142,13 @@ layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Control Settings"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_l5khv")
+theme = ExtResource("1_782ts")
 
 [node name="LookSensitivity" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
 layout_mode = 2
@@ -156,6 +156,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Look Sensitivity"
 
@@ -163,6 +164,7 @@ text = "Look Sensitivity"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme = ExtResource("1_782ts")
 max_value = 1.0
 step = 0.01
 value = 0.5
@@ -173,6 +175,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Master Volume"
 
@@ -180,6 +183,7 @@ text = "Master Volume"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme = ExtResource("1_782ts")
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -196,22 +200,12 @@ theme_override_constants/separation = 25
 
 [node name="Cancel" type="Button" parent="VBoxContainer/CancelAndApply/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w7knb")
 text = "Cancel"
 
 [node name="Apply" type="Button" parent="VBoxContainer/CancelAndApply/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_w7knb")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w7knb")
 text = "Apply"

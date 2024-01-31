@@ -1,12 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c56nip0c3imtv"]
+[gd_scene load_steps=3 format=3 uid="uid://c56nip0c3imtv"]
 
 [ext_resource type="Texture2D" uid="uid://dl3ran8fuq8j5" path="res://icon.svg" id="1_5s2r5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p5380"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rlyjr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8o1d"]
+[ext_resource type="Theme" uid="uid://cv03kaqa62u25" path="res://Assets/Themes/MenuTheme.tres" id="2_cdgar"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -42,37 +37,22 @@ size_flags_vertical = 6
 
 [node name="StartGame" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme = ExtResource("2_cdgar")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_p5380")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_p5380")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_p5380")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_p5380")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_p5380")
 text = "Start Game"
 alignment = 0
 
 [node name="Settings" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme = ExtResource("2_cdgar")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rlyjr")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_rlyjr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_rlyjr")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_rlyjr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rlyjr")
 text = "Settings"
 alignment = 0
 
 [node name="ExitGame" type="Button" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
+theme = ExtResource("2_cdgar")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxEmpty_b8o1d")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_b8o1d")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_b8o1d")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_b8o1d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b8o1d")
 text = "Exit Game"
 alignment = 0
 

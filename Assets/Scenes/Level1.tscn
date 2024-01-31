@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqt4p0p1afhyl"]
+[gd_scene load_steps=7 format=3 uid="uid://bqt4p0p1afhyl"]
 
 [ext_resource type="PackedScene" uid="uid://x0bvv5xlt1xx" path="res://Assets/Scenes/Player.tscn" id="1_xrqkf"]
+[ext_resource type="PackedScene" uid="uid://bn6exbnsy5wmc" path="res://Assets/Scenes/Menus/PauseMenu/PauseMenu.tscn" id="2_n08e7"]
 
 [sub_resource type="Environment" id="Environment_ff720"]
 
@@ -34,3 +35,5 @@ shape = SubResource("BoxShape3D_wjcbp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D(alsodelete)"]
 mesh = SubResource("BoxMesh_nd3jm")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_n08e7")]
