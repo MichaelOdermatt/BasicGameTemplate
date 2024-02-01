@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ns45imr8o6r6"]
 
 [ext_resource type="Theme" uid="uid://cv03kaqa62u25" path="res://Assets/Themes/MenuTheme.tres" id="1_6or6p"]
-[ext_resource type="Script" path="res://Assets/Scripts/Menus/PauseMenuPanel.gd" id="1_ume8l"]
+[ext_resource type="Script" path="res://Assets/Scripts/Menus/PauseMenu/PauseMenuPanel.gd" id="1_8su2p"]
 
 [node name="PauseMenuPanel" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ume8l")
+script = ExtResource("1_8su2p")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

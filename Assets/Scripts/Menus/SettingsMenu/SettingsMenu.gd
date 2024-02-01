@@ -8,7 +8,13 @@ extends Control;
 @onready var _render_scale_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer/RenderScaleSlider;
 @onready var _look_sensitivity_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity/LookSensitivitySlider;
 @onready var _master_volume_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume/MasterVolumeSlider;
+
+## The button to apply the new settings. SettingsMenu already handles updating the settings
+## variable stored in globals. As well as updating the resolution, window mode, and render scale.
 @onready var apply_btn: Button = $VBoxContainer/CancelAndApply/HBoxContainer/Apply;
+
+## The button to cancel the new settings. SettingsMenu already handles resetting the 
+## settings fields to their previous states.
 @onready var cancel_btn: Button = $VBoxContainer/CancelAndApply/HBoxContainer/Cancel;
 
 
@@ -80,6 +86,7 @@ func _apply_new_settings():
 	# to be updated after the game is set to windowed, otherwise the resolution won't update.
 	DisplayServer.window_set_mode(new_settings.selected_window_mode);
 	DisplayServer.window_set_size(new_settings.selected_resolution);
+	get_viewport().set_scaling_3d_scale(new_settings.render_scale);
 
 
 ## Resets all field values to the values stored in Globals.
