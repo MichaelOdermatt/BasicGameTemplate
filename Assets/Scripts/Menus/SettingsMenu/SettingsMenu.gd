@@ -23,7 +23,7 @@ func _ready():
 	_add_window_mode_options();
 	_add_anti_aliasing_options();
 	_setup_signals();
-	Globals.setting_values = get_settings_data();
+	set_field_values(Globals.setting_values);
 
 
 ## Returns the currently selected setting values in a SettingsData object.

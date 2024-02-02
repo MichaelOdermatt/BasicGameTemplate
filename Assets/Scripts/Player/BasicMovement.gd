@@ -5,22 +5,25 @@ extends CharacterBody3D;
 @export var min_look_angle = -45;
 @export var max_look_angle = 75;
 
-@onready var neck = $Neck;
-@onready var camera = $Neck/Camera3D;
-
+var look_sensitivity = Globals.setting_values.look_sensitivity;
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+@onready var _neck = $Neck;
+@onready var _camera = $Neck/Camera3D;
+
 
 func _unhandled_input(event):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x * 0.01 * 0.5);
-			camera.rotate_x(-event.relative.y * 0.01 * 0.5);
-			camera.rotation.x = clamp(
-				camera.rotation.x, 
+			_neck.rotate_y(-event.relative.x * 0.01 * look_sensitivity);
+			_camera.rotate_x(-event.relative.y * 0.01 * look_sensitivity);
+			_camera.rotation.x = clamp(
+				_camera.rotation.x, 
 				deg_to_rad(min_look_angle), 
 				deg_to_rad(max_look_angle)
 			);
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -39,7 +42,7 @@ func _physics_process(delta):
 		"movement_forward", 
 		"movement_backward"
 	)
-	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (_neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed

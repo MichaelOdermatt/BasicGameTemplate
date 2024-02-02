@@ -1,9 +1,9 @@
 extends MarginContainer;
 
+@export var first_level_scene_path: String = 'res://Assets/Scenes/TitleScreen.tscn';
+
 @onready var _main_menu: Control = $MainMenu;
 @onready var _settings_menu: Control = $SettingsMenu;
-
-@export var first_level_scene_path: String = 'res://Assets/Scenes/TitleScreen.tscn';
 
 func _ready():
     _setup_signals();

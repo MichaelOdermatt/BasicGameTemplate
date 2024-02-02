@@ -1,7 +1,15 @@
 extends Node
 
-## The current setting values.
-var setting_values: SettingsData;
+## The current setting values. Or the default values if the settings have not 
+## been changed.
+var setting_values: SettingsData = SettingsData.new(
+	Vector2(1280, 720),
+	WINDOW_MODES['Windowed'],
+	ANTI_ALIASING_OPTIONS['Disabled'],
+	1,
+	0.6,
+	1,
+);
 
 ## A list of all available resolution options.
 const SUPPORTED_RESOLUTIONS: Dictionary = {

@@ -1,21 +1,24 @@
 extends MarginContainer
 
-@onready var _settings_menu = $SettingsMenu;
-@onready var _pause_menu_panel = $PauseMenuPanel;
+signal settings_updated();
 
 @export var title_screen_scene_path: String = 'res://Assets/Scenes/TitleScreen.tscn';
 
+@onready var _settings_menu = $SettingsMenu;
+@onready var _pause_menu_panel = $PauseMenuPanel;
+
 var _is_pause_menu_open: bool = false;
+
+
+## Opens the pause menu.
+func show_menu():
+	_show_pause_menu_panel();
+	_is_pause_menu_open = true;
+	get_tree().paused = true;
+
 
 func _ready():
 	_setup_signals();
-
-
-func _unhandled_input(event):
-	# If the player has pressed escape open the pause menu.
-	if event.is_action_pressed("ui_cancel") && !_is_pause_menu_open:
-		_show_pause_menu_panel();
-		_is_pause_menu_open = true;
 
 
 ## Sets up all signals for the pause menu.
@@ -43,11 +46,13 @@ func _show_pause_menu_panel() -> void:
 ## Switches the scene to the title screen scene.
 func _title_screen() -> void:
 	get_tree().change_scene_to_file(title_screen_scene_path);
+	get_tree().paused = false;
 
 
 ## Closes the settings window and applys the settings.
 func _apply_btn() -> void:
 	_show_pause_menu_panel();
+	settings_updated.emit();
 
 
 ## Switches the pause menu screen to show the main menu.
@@ -56,6 +61,7 @@ func _resume_game() -> void:
 	_pause_menu_panel.visible = false;
 	_settings_menu.visible = false;
 	_is_pause_menu_open = false;
+	get_tree().paused = false;
 
 
 ## Exits the game.
