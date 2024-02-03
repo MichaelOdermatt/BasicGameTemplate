@@ -5,6 +5,7 @@ extends MarginContainer;
 @onready var _main_menu: Control = $MainMenu;
 @onready var _settings_menu: Control = $SettingsMenu;
 
+
 func _ready():
     _setup_signals();
 

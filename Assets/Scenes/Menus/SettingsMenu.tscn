@@ -113,6 +113,7 @@ min_value = 0.5
 max_value = 1.0
 step = 0.05
 value = 1.0
+scrollable = false
 
 [node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer"]
 layout_mode = 2
@@ -169,6 +170,7 @@ min_value = 0.2
 max_value = 1.0
 step = 0.01
 value = 0.6
+scrollable = false
 
 [node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
 layout_mode = 2
@@ -188,6 +190,7 @@ theme = ExtResource("1_782ts")
 max_value = 1.0
 step = 0.05
 value = 1.0
+scrollable = false
 
 [node name="CancelAndApply" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

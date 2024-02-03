@@ -77,8 +77,9 @@ func _setup_signals() -> void:
 	_window_mode_options_btn.item_selected.connect(self._update_resolution_options_btn_disabled);
 
 
-## Updates the global setting values with the current field values.
-## Also updates the screen resolution and window mode.
+## This function updates global setting values with current field values. It also applies any 
+## updated values that can be set globally without requiring a specific object instance. 
+## For instance, it doesn’t apply the look sensitivity setting, which requires the player instance.
 func _apply_new_settings():
 	var new_settings: SettingsData = get_settings_data();
 	Globals.setting_values = new_settings;
@@ -86,7 +87,9 @@ func _apply_new_settings():
 	# to be updated after the game is set to windowed, otherwise the resolution won't update.
 	DisplayServer.window_set_mode(new_settings.selected_window_mode);
 	DisplayServer.window_set_size(new_settings.selected_resolution);
-	get_viewport().set_scaling_3d_scale(new_settings.render_scale);
+	var viewport = get_viewport();
+	viewport.set_scaling_3d_scale(new_settings.render_scale);
+	viewport.msaa_3d = new_settings.selected_anti_aliasing;
 
 
 ## Resets all field values to the values stored in Globals.
