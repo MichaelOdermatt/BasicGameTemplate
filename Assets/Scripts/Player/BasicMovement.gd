@@ -2,7 +2,7 @@ extends CharacterBody3D;
 
 @export var speed = 5.0;
 @export var jump_velocity = 4.5;
-@export var min_look_angle = -45;
+@export var min_look_angle = -75;
 @export var max_look_angle = 75;
 
 var look_sensitivity = Globals.setting_values.look_sensitivity;
@@ -16,8 +16,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _unhandled_input(event):
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			_neck.rotate_y(-event.relative.x * 0.01 * look_sensitivity);
-			_camera.rotate_x(-event.relative.y * 0.01 * look_sensitivity);
+			_neck.rotate_y(-event.relative.x * look_sensitivity);
+			_camera.rotate_x(-event.relative.y * look_sensitivity);
 			_camera.rotation.x = clamp(
 				_camera.rotation.x, 
 				deg_to_rad(min_look_angle), 

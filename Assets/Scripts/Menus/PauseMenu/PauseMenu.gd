@@ -37,7 +37,7 @@ func _show_settings_menu() -> void:
 	_settings_menu.visible = true;
 
 
-## Switches the pause menu screen to show the main menu.
+## Switches the pause menu screen to show the pause menu panel.
 func _show_pause_menu_panel() -> void:
 	_pause_menu_panel.visible = true;
 	_settings_menu.visible = false;
@@ -45,8 +45,8 @@ func _show_pause_menu_panel() -> void:
 
 ## Switches the scene to the title screen scene.
 func _title_screen() -> void:
-	get_tree().change_scene_to_file(title_screen_scene_path);
 	get_tree().paused = false;
+	get_tree().change_scene_to_file(title_screen_scene_path);
 
 
 ## Closes the settings window and applys the settings.

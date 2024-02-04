@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqt4p0p1afhyl"]
+[gd_scene load_steps=5 format=3 uid="uid://bqt4p0p1afhyl"]
 
 [ext_resource type="PackedScene" uid="uid://x0bvv5xlt1xx" path="res://Assets/Scenes/Player.tscn" id="1_xrqkf"]
 [ext_resource type="PackedScene" uid="uid://bn6exbnsy5wmc" path="res://Assets/Scenes/Menus/PauseMenu/PauseMenu.tscn" id="2_n08e7"]
@@ -6,10 +6,6 @@
 [sub_resource type="Environment" id="Environment_ff720"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pr3gj"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wjcbp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_nd3jm"]
 
 [node name="Level1" type="Node3D"]
 
@@ -24,16 +20,5 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape3D_pr3gj")
 
 [node name="Player" parent="." instance=ExtResource("1_xrqkf")]
-
-[node name="StaticBody3D(alsodelete)" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2)
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D(alsodelete)"]
-shape = SubResource("BoxShape3D_wjcbp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D(alsodelete)"]
-mesh = SubResource("BoxMesh_nd3jm")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_n08e7")]

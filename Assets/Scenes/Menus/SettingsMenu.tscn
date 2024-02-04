@@ -166,10 +166,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme = ExtResource("1_782ts")
-min_value = 0.2
-max_value = 1.0
-step = 0.01
-value = 0.6
+min_value = 0.005
+max_value = 0.04
+step = 0.001
+value = 0.02
 scrollable = false
 
 [node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
