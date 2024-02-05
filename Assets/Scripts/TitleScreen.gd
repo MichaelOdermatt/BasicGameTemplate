@@ -1,9 +1,9 @@
-extends MarginContainer;
+extends Control;
 
 @export var first_level_scene_path: String = 'res://Assets/Scenes/TitleScreen.tscn';
 
-@onready var _main_menu: Control = $MainMenu;
-@onready var _settings_menu: Control = $SettingsMenu;
+@onready var _main_menu: Control = $MarginContainer/MainMenu;
+@onready var _settings_menu: Control = $MarginContainer/SettingsMenu;
 
 
 func _ready():
