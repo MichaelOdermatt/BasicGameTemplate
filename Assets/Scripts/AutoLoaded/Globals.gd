@@ -40,3 +40,9 @@ const WINDOW_MODES: Dictionary = {
 	'Windowed' : 0,
 	'Fullscreen' : 3,
 }
+
+## A list of all audio buses. The Key is the name of the audio bus
+## and the Value is it's bus index.
+const AUDIO_BUSES: Dictionary = {
+	'Master' : 0,
+}

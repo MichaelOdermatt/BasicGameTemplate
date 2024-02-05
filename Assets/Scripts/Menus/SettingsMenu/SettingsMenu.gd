@@ -6,8 +6,8 @@ extends Control;
 @onready var _window_mode_options_btn: OptionButton = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/WindowMode/WindowModeOptions;
 @onready var _anti_aliasing_options_btn: OptionButton = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/AntiAliasing/AntiAliasingOptions;
 @onready var _render_scale_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer/RenderScaleSlider;
-@onready var _look_sensitivity_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity/LookSensitivitySlider;
-@onready var _master_volume_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume/MasterVolumeSlider;
+@onready var _look_sensitivity_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer/LookSensitivity/LookSensitivitySlider;
+@onready var _master_volume_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer/MasterVolume/MasterVolumeSlider;
 
 ## The button to apply the new settings. SettingsMenu already handles updating the settings
 ## variable stored in globals. As well as updating the resolution, window mode, and render scale.
@@ -90,6 +90,10 @@ func _apply_new_settings():
 	var viewport = get_viewport();
 	viewport.set_scaling_3d_scale(new_settings.render_scale);
 	viewport.msaa_3d = new_settings.selected_anti_aliasing;
+	AudioServer.set_bus_volume_db(
+		Globals.AUDIO_BUSES['Master'],
+		linear_to_db(new_settings.master_volume),
+	);
 
 
 ## Resets all field values to the values stored in Globals.

@@ -137,31 +137,32 @@ theme_override_font_sizes/font_size = 20
 
 [node name="ControlSettings" type="MarginContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Control Settings"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_782ts")
 
-[node name="LookSensitivity" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+[node name="LookSensitivity" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity"]
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer/LookSensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Look Sensitivity"
 
-[node name="LookSensitivitySlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/LookSensitivity"]
+[node name="LookSensitivitySlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer/LookSensitivity"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -172,17 +173,33 @@ step = 0.001
 value = 0.02
 scrollable = false
 
-[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2"]
+[node name="AudioSettings" type="MarginContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_782ts")
+theme_override_font_sizes/font_size = 35
+text = "Audio Settings"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_782ts")
+
+[node name="MasterVolume" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_782ts")
 theme_override_font_sizes/font_size = 35
 text = "Master Volume"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer2/MasterVolume"]
+[node name="MasterVolumeSlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer/MasterVolume"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
