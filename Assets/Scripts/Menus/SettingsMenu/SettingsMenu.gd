@@ -7,6 +7,8 @@ extends Control;
 @onready var _anti_aliasing_options_btn: OptionButton = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/AntiAliasing/AntiAliasingOptions;
 @onready var _render_scale_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/RenderScale/HBoxContainer/RenderScaleSlider;
 @onready var _look_sensitivity_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/ControlSettings/VBoxContainer/LookSensitivity/LookSensitivitySlider;
+@onready var _fov_label: Label = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov/HBoxContainer/FovLabel;
+@onready var _fov_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov/HBoxContainer/FovSlider;
 @onready var _master_volume_slider: Slider = $VBoxContainer/Settings/MarginContainer/VBoxContainer/AudioSettings/VBoxContainer/MasterVolume/MasterVolumeSlider;
 
 ## The button to apply the new settings. SettingsMenu already handles updating the settings
@@ -43,6 +45,7 @@ func get_settings_data() -> SettingsData:
 		selected_anti_aliasing,
 		_render_scale_slider.value,
 		_look_sensitivity_slider.value,
+		_fov_slider.value,
 		_master_volume_slider.value,
 	);
 
@@ -58,6 +61,8 @@ func set_field_values(settings_data: SettingsData) -> void:
 	_anti_aliasing_options_btn.select(settings_data.selected_anti_aliasing);
 	_render_scale_slider.value = settings_data.render_scale;
 	_look_sensitivity_slider.value = settings_data.look_sensitivity;
+	_fov_label.text = str(settings_data.fov);
+	_fov_slider.value = settings_data.fov;
 	_master_volume_slider.value = settings_data.master_volume;
 
 
@@ -75,6 +80,7 @@ func _setup_signals() -> void:
 	cancel_btn.pressed.connect(self._reset_all_field_values);
 	apply_btn.pressed.connect(self._apply_new_settings);
 	_window_mode_options_btn.item_selected.connect(self._update_resolution_options_btn_disabled);
+	_fov_slider.value_changed.connect(self._update_fov_label);
 
 
 ## This function updates global setting values with current field values. It also applies any 
@@ -134,3 +140,8 @@ func _add_resolution_options() -> void:
 ## Convert the given resolution to a string.
 func _get_resolution_as_string(resolution: Vector2i) -> String:
 	return "%s x %s" % [resolution.x, resolution.y];
+
+
+## Updates the fov label with the fov slider value.
+func _update_fov_label(value: float) -> void:
+	_fov_label.text = str(_fov_slider.value);

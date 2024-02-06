@@ -1,6 +1,7 @@
 extends Node;
 
-@onready var _basic_movement = $CharacterBody3D;
+@onready var _basic_movement: CharacterBody3D = $CharacterBody3D;
+@onready var _camera: Camera3D = $CharacterBody3D/Neck/Camera3D;
 @onready var _pause_menu = get_node('../PauseMenu');
 
 
@@ -22,4 +23,5 @@ func _unhandled_input(event):
 
 ## Updates any player variables from the global values.
 func _update_player_variables_from_Globals():
+	_camera.fov = Globals.setting_values.fov;
 	_basic_movement.look_sensitivity = Globals.setting_values.look_sensitivity;

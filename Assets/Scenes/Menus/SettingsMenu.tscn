@@ -135,6 +135,37 @@ layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 20
 
+[node name="Fov" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_782ts")
+theme_override_font_sizes/font_size = 35
+text = "FOV: "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FovLabel" type="Label" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_782ts")
+theme_override_font_sizes/font_size = 30
+text = "75"
+
+[node name="FovSlider" type="HSlider" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer/VideoSettings/VBoxContainer/Fov/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme = ExtResource("1_782ts")
+min_value = 60.0
+max_value = 110.0
+step = 5.0
+value = 75.0
+scrollable = false
+
 [node name="ControlSettings" type="MarginContainer" parent="VBoxContainer/Settings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_bottom = 30

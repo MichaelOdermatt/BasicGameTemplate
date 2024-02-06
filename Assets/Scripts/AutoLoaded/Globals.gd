@@ -8,6 +8,7 @@ var setting_values: SettingsData = SettingsData.new(
 	ANTI_ALIASING_OPTIONS['Disabled'],
 	1,
 	0.02,
+	75,
 	1,
 );
 
