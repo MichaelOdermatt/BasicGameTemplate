@@ -1,4 +1,4 @@
-extends Node;
+extends Node3D;
 
 @onready var _basic_movement: CharacterBody3D = $CharacterBody3D;
 @onready var _camera: Camera3D = $CharacterBody3D/Neck/Camera3D;

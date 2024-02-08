@@ -5,11 +5,11 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_marhc"]
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node3D"]
 script = ExtResource("1_k2u02")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-collision_mask = 2
+collision_layer = 2
 script = ExtResource("1_3dxe5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]

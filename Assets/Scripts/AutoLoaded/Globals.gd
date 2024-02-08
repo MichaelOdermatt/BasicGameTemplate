@@ -7,7 +7,7 @@ var setting_values: SettingsData = SettingsData.new(
 	WINDOW_MODES['Windowed'],
 	ANTI_ALIASING_OPTIONS['Disabled'],
 	1,
-	0.02,
+	0.013,
 	75,
 	1,
 );

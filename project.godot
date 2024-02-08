@@ -51,4 +51,5 @@ movement_backward={
 
 [layer_names]
 
-3d_physics/layer_1="Player"
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
