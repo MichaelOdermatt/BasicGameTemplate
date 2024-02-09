@@ -1,12 +1,22 @@
-extends Node3D;
+extends CharacterBody3D;
 
-@onready var _basic_movement: CharacterBody3D = $CharacterBody3D;
-@onready var _camera: Camera3D = $CharacterBody3D/Neck/Camera3D;
+var _basic_movement: BasicMovement;
+
+@onready var _camera: Camera3D = $Head/Camera3D;
+@onready var _head: Node3D = $Head;
 @onready var _pause_menu = get_node('../PauseMenu');
 
 
 func _ready():
 	_pause_menu.settings_updated.connect(self._update_player_variables_from_Globals);
+	var setting_values = Globals.setting_values;
+	_basic_movement = BasicMovement.new(
+		setting_values.look_sensitivity, 
+		ProjectSettings.get_setting("physics/3d/default_gravity"), 
+		_head, 
+		_camera, 
+		self
+	);
 	## Capture the mouse initially.
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 
@@ -20,8 +30,16 @@ func _unhandled_input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 		_pause_menu.show_menu();
 
+	## Update player camera movement.
+	_basic_movement.handle_player_mouse_motion(event);
+
+
+func _physics_process(delta):
+	## Update player movement.
+	_basic_movement.handle_player_movement(delta);
+
 
 ## Updates any player variables from the global values.
-func _update_player_variables_from_Globals():
-	_camera.fov = Globals.setting_values.fov;
-	_basic_movement.look_sensitivity = Globals.setting_values.look_sensitivity;
+func _update_player_variables_from_Globals() -> void:
+	_basic_movement.set_look_sensitivity(Globals.setting_values.look_sensitivity);
+	_basic_movement.set_fov(Globals.setting_values.fov);
