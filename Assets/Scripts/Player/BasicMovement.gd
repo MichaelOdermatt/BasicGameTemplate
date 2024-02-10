@@ -5,6 +5,8 @@ var SPRINT_SPEED = 8.0;
 var JUMP_VELOCITY = 4.5;
 var MIN_LOOK_ANGLE = -75;
 var MAX_LOOK_ANGLE = 75;
+var GROUND_ACCELERATION = 9.0;
+var AIR_ACCELERATION = 2.0;
 
 var _look_sensitivity;
 var _gravity;
@@ -52,13 +54,17 @@ func handle_player_movement(delta: float) -> void:
 		"movement_forward", 
 		"movement_backward"
 	);
-	var direction = (_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
-	if direction:
-		_character.velocity.x = direction.x * speed;
-		_character.velocity.z = direction.z * speed;
+
+	var acceleration: float;
+	if _character.is_on_floor():
+		acceleration = GROUND_ACCELERATION;
 	else:
-		_character.velocity.x = move_toward(_character.velocity.x, 0, speed);
-		_character.velocity.z = move_toward(_character.velocity.z, 0, speed);
+		acceleration = AIR_ACCELERATION;
+
+	# Apply an acceleration value to the players movement.
+	var direction = (_head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized();
+	_character.velocity.x = lerp(_character.velocity.x, direction.x * speed, delta * acceleration);
+	_character.velocity.z = lerp(_character.velocity.z, direction.z * speed, delta * acceleration);
 
 	_character.move_and_slide();
 
