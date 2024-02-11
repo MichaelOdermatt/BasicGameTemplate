@@ -3,11 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://x0bvv5xlt1xx" path="res://Assets/Scenes/Player.tscn" id="1_xrqkf"]
 [ext_resource type="PackedScene" uid="uid://bn6exbnsy5wmc" path="res://Assets/Scenes/Menus/PauseMenu/PauseMenu.tscn" id="2_n08e7"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5yhh2"]
+
+[sub_resource type="Sky" id="Sky_c8u4d"]
+sky_material = SubResource("ProceduralSkyMaterial_5yhh2")
+
 [sub_resource type="Environment" id="Environment_ff720"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_fx1h6"]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_poj8p"]
+background_mode = 2
+sky = SubResource("Sky_c8u4d")
 
 [node name="Level1" type="Node3D"]
 
@@ -17,13 +20,3 @@ environment = SubResource("Environment_ff720")
 [node name="Player" parent="." instance=ExtResource("1_xrqkf")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_n08e7")]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
-mesh = SubResource("CapsuleMesh_fx1h6")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_poj8p")
