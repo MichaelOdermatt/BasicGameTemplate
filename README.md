@@ -1,5 +1,6 @@
+# GODOT 3D Game Template
 <p align="center">
-    <img width=500 src="https://github.com/MichaelOdermatt/BasicGameTemplate/assets/43145047/2e387082-5eca-4ad9-8d9c-52844ff9be58" />
+    <img width=500 src="https://github.com/MichaelOdermatt/BasicGameTemplate/assets/43145047/890e3d94-2582-485e-96cd-4ecc039b4558" />
 </p>
 
 Template for 3D games in Godot.
