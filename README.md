@@ -34,5 +34,12 @@ The two images on the title screen can be easily changed by opening `/Assets/Sce
 **Audio Settings**
 - Master Volume
 
+### How Settings Work
+**Note: Settings do not persist between play sessions, meaning all settings will be reset back when the game is closed and reopened.
+
+All of the setting values are saved in `/Assets/Scripts/AutoLoaded/Globals.gd` in the `setting_values` variable. The settings are saved as a `SettingsData` object which is not intended to be mutated but rather replaced with a new instance everytime a setting is changed. 
+
+The function which build the new `SettingsData` object is called `get_settings_data()` in `/Assets/Scripts/Menus/SettingsMenu/SettingsMenu.gd`. It gets the value from every field in the settings menu and returns a new `SettingsData` object. So, when the Apply button is clicked in the settings menu, that `SettingsData` object is taken and stored in the autoloaded `Globals.gd` script so that it can be easily accessed from anywhere in the code.
+
 ## 3D Character Controller
 Straightforward 3D Character Controller that handles all basic movement and allows you to modify things like walk speed, acceleration / decceleration, sprint speed, and more.
