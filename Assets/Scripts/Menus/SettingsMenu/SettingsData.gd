@@ -6,8 +6,8 @@ var selected_anti_aliasing: int;
 var render_scale: float;
 var look_sensitivity: float;
 var fov: float;
-## The volume level as a linear value. Make sure to convert this to a db value
-## before applying this volume.
+## The volume level is stored as a linear value. Make sure to convert this to a 
+## db value before applying this volume.
 var master_volume: float;
 
 func _init(
