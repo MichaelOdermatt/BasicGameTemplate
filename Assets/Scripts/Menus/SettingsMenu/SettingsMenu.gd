@@ -139,7 +139,7 @@ func _add_resolution_options() -> void:
 
 ## Convert the given resolution to a string.
 func _get_resolution_as_string(resolution: Vector2i) -> String:
-	return "%s x %s" % [resolution.x, resolution.y];
+	return '%s x %s' % [resolution.x, resolution.y];
 
 
 ## Updates the fov label with the fov slider value.

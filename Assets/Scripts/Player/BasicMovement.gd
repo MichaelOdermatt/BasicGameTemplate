@@ -1,4 +1,4 @@
-class_name BasicMovement
+class_name BasicMovement;
 
 var WALK_SPEED = 5.0;
 var SPRINT_SPEED = 8.0;
@@ -8,11 +8,11 @@ var MAX_LOOK_ANGLE = 75;
 var GROUND_ACCELERATION = 9.0;
 var AIR_ACCELERATION = 2.0;
 
-var _look_sensitivity;
-var _gravity;
-var _head;
-var _camera;
-var _character;
+var _look_sensitivity: float;
+var _gravity: float;
+var _head: Node3D;
+var _camera: Camera3D;
+var _character: CharacterBody3D;
 
 
 func _init(
@@ -43,16 +43,16 @@ func handle_player_movement(delta: float) -> void:
 		_character.velocity.y -= _gravity * delta;
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and _character.is_on_floor():
+	if Input.is_action_just_pressed('ui_accept') and _character.is_on_floor():
 		_character.velocity.y = JUMP_VELOCITY;
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector(
-		"movement_left", 
-		"movement_right", 
-		"movement_forward", 
-		"movement_backward"
+		'movement_left', 
+		'movement_right', 
+		'movement_forward', 
+		'movement_backward'
 	);
 
 	var acceleration: float;
